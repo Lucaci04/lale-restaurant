@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lale Restaurant, bucătărie turcească în Constanța (demo)</title>
+  <meta name="description" content="Restaurant fictiv (demo), bucătărie turcească, Bulevardul Exemplului nr. 10, Constanța.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#1E1720">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/bodoni-moda-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/instrument-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#continut">Sari la conținut</a>
+
+  <p class="demo-strip">
+    Concept demo neoficial, nepublicat. Fotografiile de preparate sunt ilustrative, cu licență liberă, nu de la Lale. Meniul, prețurile și telefonul sunt de confirmat.
+  </p>
+
+  <header class="bar">
+    <div class="wrap bar__inner">
+      <a class="wordmark" href="#acasa" aria-label="Lale, începutul paginii">
+        <span class="wordmark__name" translate="no">Lale</span>
+        <span class="wordmark__kind">bucătărie turcească</span>
+      </a>
+      <nav class="bar__nav" aria-label="Navigație principală">
+        <ul>
+          <li><a href="#meniu">Meniu</a></li>
+          <li><a href="#localul">Localul</a></li>
+          <li><a href="#rezervare">Rezervare</a></li>
+          <li><a href="#vizita">Cum ajungi</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn--ghost btn--small" href="https://www.google.com/maps/search/?api=1&query=Constan%C8%9Ba" target="_blank" rel="noopener">Indicații<span class="visually-hidden"> în Google Maps (filă nouă)</span></a>
+    </div>
+  </header>
+
+  <main id="continut">
+    <section class="hero" id="acasa" aria-labelledby="hero-title">
+      <div class="wrap hero__grid">
+        <div class="hero__text">
+          <h1 id="hero-title" class="hero__title">
+            <span class="line"><span>Meze, pide</span></span>
+            <span class="line line--indent"><span>și kebap</span></span>
+            <span class="line"><span>pe&nbsp;bulevard.</span></span>
+          </h1>
+          <div class="hero__after">
+            <p class="hero__lead">Restaurantul cu bucătărie turcească din&nbsp;Constanța.</p>
+            <div class="hero__actions">
+              <a class="btn btn--brass" href="https://www.google.com/maps/search/?api=1&query=Constan%C8%9Ba" target="_blank" rel="noopener">Deschide în Google Maps<span class="visually-hidden"> (filă nouă)</span></a>
+              <a class="link-quiet" href="#meniu">Vezi meniul</a>
+            </div>
+            <p class="hero__address">Bd. Exemplului nr. 10, Constanța</p>
+          </div>
+        </div>
+        <figure class="hero__media">
+          <div class="hero__frame">
+            <img src="img/pide-platou-900.jpg" srcset="img/pide-platou-900.jpg 900w, img/pide-platou.jpg 1600w" sizes="(min-width: 960px) 42vw, 100vw" width="900" height="675" fetchpriority="high" decoding="async" alt="Pide cu brânză topită, tăiată în felii, pe un platou oval de lemn">
+          </div>
+          <figcaption>Pide cu brânză. Grafică generată, ilustrativă.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="offers" id="oferte" aria-labelledby="oferte-title" hidden>
+      <div class="wrap">
+        <h2 id="oferte-title" class="h2">Oferte</h2>
+        <p class="note">Create în panoul de administrare demo. Nu sunt oferte reale ale restaurantului.</p>
+        <ul class="offers__list" data-offers></ul>
+      </div>
+    </section>
+
+    <section class="menu" id="meniu" aria-labelledby="meniu-title">
+      <div class="wrap">
+        <div class="menu__head">
+          <h2 id="meniu-title" class="h2">Meniul</h2>
+          <p class="note">
+            Meniu de exemplu: numele și prețurile sunt orientative.
+          </p>
+        </div>
+        <div class="menu__grid">
+          <div class="menu__nav" data-menu-nav></div>
+          <div class="menu__panels" data-menu-panels>
+            <p class="note">Meniul se încarcă…</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="despre" aria-labelledby="despre-title">
+      <div class="wrap about__inner">
+        <h2 id="despre-title" class="about__quote">În turcă, <span lang="tr">lale</span> înseamnă lalea, un simbol vechi al Turciei.</h2>
+        <div class="about__text">
+          <p>
+            Meniul începe cu meze reci și ciorbă, continuă cu pide și lahmacun din cuptor,
+            apoi cu kebapuri, și se încheie cu baclava.
+          </p>
+          <p class="about__todo">Povestea locului, a echipei și a bucătăriei se scrie aici, împreună cu proprietarul.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="dishes" aria-labelledby="preparate-title">
+      <div class="wrap">
+        <div class="dishes__head">
+          <h2 id="preparate-title" class="h2">Din meniu, în imagini</h2>
+          <p class="note">Imagini ilustrative cu licență liberă, alese după preparatele din meniu. Nu sunt fotografii de la Lale.</p>
+        </div>
+        <ul class="dishes__grid">
+          <li class="dish dish--meze" data-reveal>
+            <figure>
+              <div class="dish__frame"><img src="img/meze-900.jpg" srcset="img/meze-900.jpg 900w, img/meze.jpg 1600w" sizes="(min-width: 960px) 46vw, 100vw" width="900" height="507" loading="lazy" decoding="async" alt="Platou cu meze: humus, ezme, haydari, sarmale în foi de viță și rulouri crocante"></div>
+              <figcaption><span>Meze reci</span><small>Grafică generată</small></figcaption>
+            </figure>
+          </li>
+          <li class="dish dish--kebap" data-reveal>
+            <figure>
+              <div class="dish__frame"><img src="img/adana-kebap-900.jpg" srcset="img/adana-kebap-900.jpg 900w, img/adana-kebap.jpg 1600w" sizes="(min-width: 960px) 30vw, 100vw" width="900" height="599" loading="lazy" decoding="async" alt="Frigărui de Adana kebap pe lipie, cu roșii și ardei iute la grătar"></div>
+              <figcaption><span>Adana kebap</span><small>Grafică generată</small></figcaption>
+            </figure>
+          </li>
+          <li class="dish dish--baklava" data-reveal>
+            <figure>
+              <div class="dish__frame"><img src="img/baklava-900.jpg" srcset="img/baklava-900.jpg 597w, img/baklava.jpg 1062w" sizes="(min-width: 960px) 20vw, 100vw" width="597" height="900" loading="lazy" decoding="async" alt="Rulouri de baclava cu fistic, așezate strâns"></div>
+              <figcaption><span>Baclava cu fistic</span><small>Grafică generată</small></figcaption>
+            </figure>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="venue" id="localul" aria-labelledby="localul-title">
+      <div class="wrap">
+        <div class="venue__head">
+          <h2 id="localul-title" class="h2">Localul</h2>
+          <p class="note">Pe Bulevardul Exemplului nr. 10.</p>
+        </div>
+        <ul class="venue__grid" data-venue>
+          <li class="frame frame--wide"><p class="frame__wait">Fotografia Lale urmează să fie trimisă de proprietar.</p></li>
+          <li class="frame"><p class="frame__wait">Fotografia Lale urmează să fie trimisă de proprietar.</p></li>
+          <li class="frame"><p class="frame__wait">Fotografia Lale urmează să fie trimisă de proprietar.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="booking" id="rezervare" aria-labelledby="rezervare-title">
+      <div class="wrap booking__grid">
+        <div class="booking__intro">
+          <h2 id="rezervare-title" class="h2">Rezervă o masă</h2>
+          <p>Completează cererea. În demo, ea ajunge în panoul de administrare, unde restaurantul o poate confirma sau anula.</p>
+          <p class="booking__warn">Demo: cererea se salvează doar în acest browser și nu ajunge la restaurant. Pentru o rezervare reală, sună la restaurant.</p>
+        </div>
+
+        <form class="plate" data-booking novalidate>
+          <div class="plate__fields" data-booking-fields>
+            <div class="field field--wide">
+              <label for="b-name">Nume</label>
+              <input id="b-name" name="name" type="text" autocomplete="name" required maxlength="80" placeholder="ex. Ioana Marin…">
+              <p class="field__error" id="b-name-error" hidden>Scrie numele pentru rezervare.</p>
+            </div>
+            <div class="field">
+              <label for="b-phone">Telefon</label>
+              <input id="b-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="ex. 07xx xxx xxx…">
+              <p class="field__error" id="b-phone-error" hidden>Scrie un număr de telefon de cel puțin 9 cifre.</p>
+            </div>
+            <div class="field">
+              <label for="b-people">Persoane</label>
+              <select id="b-people" name="people">
+                <option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option value="9">9 sau mai multe</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="b-date">Data</label>
+              <input id="b-date" name="date" type="date" required>
+              <p class="field__error" id="b-date-error" hidden>Alege o dată de azi încolo.</p>
+            </div>
+            <div class="field">
+              <label for="b-time">Ora</label>
+              <input id="b-time" name="time" type="time" required step="900">
+              <p class="field__error" id="b-time-error" hidden>Alege ora la care vii.</p>
+            </div>
+            <div class="field field--wide">
+              <label for="b-notes">Mențiuni <span class="field__opt">(opțional)</span></label>
+              <textarea id="b-notes" name="notes" rows="2" maxlength="300" autocomplete="off" placeholder="ex. scaun pentru copil…"></textarea>
+            </div>
+            <div class="field--wide plate__actions">
+              <button class="btn btn--brass" type="submit">Trimite cererea</button>
+            </div>
+          </div>
+          <div class="plate__done" data-booking-done tabindex="-1" hidden>
+            <p class="plate__badge">Trimis</p>
+            <p class="plate__done-title">Cererea a fost trimisă.</p>
+            <p data-booking-summary></p>
+            <button class="btn btn--ghost" type="button" data-booking-again>Fă altă cerere</button>
+          </div>
+          <p class="visually-hidden" aria-live="polite" data-booking-live></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="visit" id="vizita" aria-labelledby="vizita-title">
+      <div class="wrap visit__grid">
+        <div class="visit__where">
+          <h2 id="vizita-title" class="h2">Cum ajungi</h2>
+          <address class="visit__address">
+            <span class="visit__street">Bulevardul Exemplului nr. 10</span>
+            
+            900001 Constanța
+          </address>
+          <a class="btn btn--brass" href="https://www.google.com/maps/search/?api=1&query=Constan%C8%9Ba" target="_blank" rel="noopener">Deschide în Google Maps<span class="visually-hidden"> (filă nouă)</span></a>
+        </div>
+
+        <dl class="facts">
+          <div class="fact">
+            <dt>Program</dt>
+            <dd><p>Va fi afișat după ce îl confirmă restaurantul.</p></dd>
+          </div>
+          <div class="fact">
+            <dt>Telefon</dt>
+            <dd>
+              <a class="fact__big" href="tel:+40700000901">+40 700 000 901</a>
+              <span class="pending">Din listări publice, de confirmat</span>
+            </dd>
+          </div>
+          <div class="fact">
+            <dt>Livrare și la pachet</dt>
+            <dd>
+              <span class="pending">Opțiunile de comandă sunt de confirmat</span>
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot__inner">
+      <p class="foot__word" translate="no">Lale</p>
+      <div class="foot__text">
+        <p>
+          Proiect demonstrativ: restaurantul, meniul, adresa și telefonul sunt fictive.
+        </p>
+        <p><a href="admin.html">Panou de administrare (demo)</a></p>
+        <details class="credits">
+          <summary>Credite</summary>
+          <p>Imaginile sunt grafică abstractă generată pentru acest demo. Restaurantul, adresa și telefonul sunt fictive.</p>
+          <p>Fonturi: Bodoni Moda și Instrument Sans, SIL Open Font License, servite local.</p>
+        </details>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/menu-data.js" defer></script>
+  <script src="js/store.js" defer></script>
+  <script src="js/venue-photos.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+</html>

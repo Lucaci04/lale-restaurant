@@ -1,0 +1,14 @@
+# Fișiere rămase de la direcția „Atelierul de aramă”, nefolosite de site.
+js/sahan.js
+vendor/
+img/sahan-poster.png
+img/locatie/.gitkeep
+fonts/gloock-*
+fonts/hanken-*
+img/pide-cascaval*
+img/kebap-bulgur*
+
+# Secrete locale și fișiere de lucru: nu se publică.
+.env*
+.gitignore
+.vercelignore

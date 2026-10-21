@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Lale (demo)</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#1E1720">
+  <link rel="preload" href="fonts/instrument-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <a class="skip-link" href="#continut">Sari la conținut</a>
+
+  <!-- Intrare demo: nu există autentificare reală. -->
+  <section class="login" data-login aria-labelledby="login-title">
+    <div class="login__card">
+      <p class="login__brand" aria-hidden="true">Lale</p>
+      <h1 id="login-title" class="login__title">Panoul restaurantului</h1>
+      <p class="login__text">Gestionează rezervările, meniul și ofertele. Demo fără cont: datele rămân doar în acest browser.</p>
+      <button class="a-btn a-btn--primary a-btn--lg" type="button" data-enter>Intră în panoul demo</button>
+      <a class="login__back" href="index.html">Înapoi la site</a>
+    </div>
+  </section>
+
+  <div class="shell" data-shell hidden>
+    <aside class="side" aria-label="Panou Lale">
+      <div class="side__brand">
+        <span class="side__word" aria-hidden="true">Lale</span><span class="visually-hidden">Lale</span>
+        <span class="side__tag">Admin demo</span>
+      </div>
+      <nav class="side__nav" aria-label="Secțiuni admin">
+        <a href="#panou" data-nav="panou">Azi</a>
+        <a href="#rezervari" data-nav="rezervari">Rezervări <span class="side__count" data-count="pending"></span></a>
+        <a href="#meniu" data-nav="meniu">Meniu</a>
+        <a href="#oferte" data-nav="oferte">Oferte</a>
+        <a href="#setari" data-nav="setari">Date demo</a>
+      </nav>
+      <div class="side__foot">
+        <a class="side__site" href="index.html" target="_blank" rel="noopener">Deschide site-ul</a>
+        <button class="side__exit" type="button" data-exit>Ieși din panou</button>
+      </div>
+    </aside>
+
+    <main class="main" id="continut" tabindex="-1">
+      <header class="topbar">
+        <div>
+          <h1 class="topbar__title" data-view-title>Azi</h1>
+          <p class="topbar__date" data-today></p>
+        </div>
+        <p class="topbar__note">Demo: modificările apar pe site doar în acest browser.</p>
+      </header>
+
+      <section class="view" data-view="panou" aria-labelledby="v-panou" hidden>
+        <h2 id="v-panou" class="visually-hidden">Rezumatul zilei</h2>
+        <div class="stats" data-stats></div>
+        <div class="dash">
+          <article class="panel">
+            <header class="panel__head">
+              <h3>Următoarele rezervări</h3>
+              <a href="#rezervari">Toate rezervările</a>
+            </header>
+            <ul class="mini-list" data-upcoming></ul>
+          </article>
+          <article class="panel">
+            <header class="panel__head">
+              <h3>Indisponibile acum</h3>
+              <a href="#meniu">Editează meniul</a>
+            </header>
+            <ul class="mini-list" data-unavailable></ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="view" data-view="rezervari" aria-labelledby="v-rez" hidden>
+        <h2 id="v-rez" class="visually-hidden">Rezervări</h2>
+        <div class="toolbar">
+          <div class="seg" role="group" aria-label="Filtru după status" data-res-filter>
+            <button type="button" data-value="all" aria-pressed="true">Toate</button>
+            <button type="button" data-value="pending" aria-pressed="false">În așteptare</button>
+            <button type="button" data-value="confirmed" aria-pressed="false">Confirmate</button>
+            <button type="button" data-value="cancelled" aria-pressed="false">Anulate</button>
+          </div>
+          <label class="sel">
+            <span class="visually-hidden">Perioadă</span>
+            <select data-res-range>
+              <option value="upcoming">De azi încolo</option>
+              <option value="today">Doar azi</option>
+              <option value="all">Toate datele</option>
+            </select>
+          </label>
+          <button class="a-btn a-btn--primary" type="button" data-new-res>Adaugă rezervare</button>
+        </div>
+        <div data-res-list></div>
+      </section>
+
+      <section class="view" data-view="meniu" aria-labelledby="v-meniu" hidden>
+        <h2 id="v-meniu" class="visually-hidden">Meniu</h2>
+        <div class="toolbar">
+          <label class="search">
+            <span class="visually-hidden">Caută în meniu</span>
+            <input type="search" placeholder="Caută un preparat…" autocomplete="off" spellcheck="false" data-menu-search>
+          </label>
+          <button class="a-btn a-btn--primary" type="button" data-new-item>Adaugă produs</button>
+        </div>
+        <div class="chips" role="group" aria-label="Categorie" data-menu-cats></div>
+        <div data-menu-list></div>
+      </section>
+
+      <section class="view" data-view="oferte" aria-labelledby="v-oferte" hidden>
+        <h2 id="v-oferte" class="visually-hidden">Oferte</h2>
+        <div class="toolbar">
+          <p class="toolbar__hint">Ofertele active apar pe site, în secțiunea „Oferte”, marcate „Ofertă demo”.</p>
+          <button class="a-btn a-btn--primary" type="button" data-new-offer>Ofertă nouă</button>
+        </div>
+        <ul class="offer-grid" data-offer-list></ul>
+      </section>
+
+      <section class="view" data-view="setari" aria-labelledby="v-setari" hidden>
+        <h2 id="v-setari" class="visually-hidden">Date demo</h2>
+        <div class="dash">
+          <article class="panel">
+            <header class="panel__head"><h3>Unde sunt datele</h3></header>
+            <p>Rezervările, meniul și ofertele se salvează în <code>localStorage</code>, doar în acest browser. Nu există server, cont sau trimitere către restaurant.</p>
+            <p>Meniul pornește de la un exemplu. Rezervările de exemplu sunt fictive.</p>
+          </article>
+          <article class="panel">
+            <header class="panel__head"><h3>Acțiuni</h3></header>
+            <div class="stack">
+              <button class="a-btn" type="button" data-export>Descarcă datele (JSON)</button>
+              <button class="a-btn a-btn--danger" type="button" data-reset>Resetează datele demo</button>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Dialoguri -->
+  <dialog class="dlg" id="dlg-item" aria-labelledby="dlg-item-title">
+    <form method="dialog" class="dlg__form" data-item-form novalidate>
+      <h2 id="dlg-item-title" class="dlg__title">Produs</h2>
+      <div class="a-field">
+        <label for="i-name">Nume (cum apare în meniu)</label>
+        <input id="i-name" name="name" required maxlength="80" autocomplete="off">
+      </div>
+      <div class="a-field">
+        <label for="i-sub">Nume în română <span class="opt">(opțional)</span></label>
+        <input id="i-sub" name="sub" maxlength="100" autocomplete="off">
+      </div>
+      <div class="a-row">
+        <div class="a-field">
+          <label for="i-price">Preț (lei)</label>
+          <input id="i-price" name="price" type="number" inputmode="decimal" min="0" step="0.5" required>
+        </div>
+        <div class="a-field">
+          <label for="i-cat">Categorie</label>
+          <select id="i-cat" name="cat"></select>
+        </div>
+      </div>
+      <p class="a-error" data-item-error role="alert" hidden>Completează numele și un preț valid.</p>
+      <div class="dlg__actions">
+        <button class="a-btn" value="cancel" formnovalidate>Renunță</button>
+        <button class="a-btn a-btn--primary" value="save" data-save>Salvează produsul</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="dlg dlg--wide" id="dlg-offer" aria-labelledby="dlg-offer-title">
+    <form method="dialog" class="dlg__form dlg__split" data-offer-form novalidate>
+      <div>
+        <h2 id="dlg-offer-title" class="dlg__title">Ofertă</h2>
+        <div class="a-field">
+          <label for="o-title">Titlu</label>
+          <input id="o-title" name="title" required maxlength="60" autocomplete="off" placeholder="ex. Meze pentru doi…">
+        </div>
+        <div class="a-field">
+          <label for="o-text">Descriere</label>
+          <textarea id="o-text" name="text" rows="3" maxlength="200" autocomplete="off"></textarea>
+        </div>
+        <div class="a-field">
+          <label for="o-price">Preț sau beneficiu <span class="opt">(opțional)</span></label>
+          <input id="o-price" name="price" maxlength="30" autocomplete="off" placeholder="ex. 89 lei…">
+        </div>
+        <div class="a-row">
+          <div class="a-field">
+            <label for="o-from">De la</label>
+            <input id="o-from" name="from" type="date">
+          </div>
+          <div class="a-field">
+            <label for="o-to">Până la</label>
+            <input id="o-to" name="to" type="date">
+          </div>
+        </div>
+        <fieldset class="tones">
+          <legend>Culoare</legend>
+          <label><input type="radio" name="tone" value="pomegranate" checked><span class="tone tone--pomegranate"></span>Roșu</label>
+          <label><input type="radio" name="tone" value="pistachio"><span class="tone tone--pistachio"></span>Verde</label>
+          <label><input type="radio" name="tone" value="saffron"><span class="tone tone--saffron"></span>Galben</label>
+          <label><input type="radio" name="tone" value="sumac"><span class="tone tone--sumac"></span>Sumac</label>
+          <label><input type="radio" name="tone" value="ink"><span class="tone tone--ink"></span>Albastru</label>
+        </fieldset>
+        <label class="check"><input type="checkbox" name="active"> Afișează pe site</label>
+        <p class="a-error" data-offer-error role="alert" hidden>Scrie un titlu. Data de final nu poate fi înaintea celei de început.</p>
+      </div>
+      <div class="dlg__preview">
+        <p class="dlg__preview-label">Previzualizare</p>
+        <div class="offer-card" data-offer-preview></div>
+      </div>
+      <div class="dlg__actions dlg__actions--full">
+        <button class="a-btn" value="cancel" formnovalidate>Renunță</button>
+        <button class="a-btn a-btn--primary" value="save">Salvează oferta</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="dlg" id="dlg-res" aria-labelledby="dlg-res-title">
+    <form method="dialog" class="dlg__form" data-res-form novalidate>
+      <h2 id="dlg-res-title" class="dlg__title">Rezervare nouă</h2>
+      <div class="a-field">
+        <label for="r-name">Nume</label>
+        <input id="r-name" name="name" required maxlength="80" autocomplete="off">
+      </div>
+      <div class="a-row">
+        <div class="a-field">
+          <label for="r-phone">Telefon</label>
+          <input id="r-phone" name="phone" type="tel" inputmode="tel" autocomplete="off">
+        </div>
+        <div class="a-field">
+          <label for="r-people">Persoane</label>
+          <input id="r-people" name="people" type="number" min="1" max="40" value="2" inputmode="numeric">
+        </div>
+      </div>
+      <div class="a-row">
+        <div class="a-field">
+          <label for="r-date">Data</label>
+          <input id="r-date" name="date" type="date" required>
+        </div>
+        <div class="a-field">
+          <label for="r-time">Ora</label>
+          <input id="r-time" name="time" type="time" step="900" required>
+        </div>
+      </div>
+      <div class="a-field">
+        <label for="r-notes">Mențiuni <span class="opt">(opțional)</span></label>
+        <textarea id="r-notes" name="notes" rows="2" maxlength="300" autocomplete="off"></textarea>
+      </div>
+      <label class="check"><input type="checkbox" name="confirmed" checked> Marchează ca rezervare confirmată</label>
+      <p class="a-error" data-res-error role="alert" hidden>Completează numele, data și ora.</p>
+      <div class="dlg__actions">
+        <button class="a-btn" value="cancel" formnovalidate>Renunță</button>
+        <button class="a-btn a-btn--primary" value="save">Adaugă rezervarea</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="dlg" id="dlg-confirm" aria-labelledby="dlg-confirm-title">
+    <form method="dialog" class="dlg__form">
+      <h2 id="dlg-confirm-title" class="dlg__title">Resetezi datele demo?</h2>
+      <p>Meniul revine la exemplul inițial, iar rezervările și ofertele revin la exemplele inițiale. Modificările tale se pierd.</p>
+      <div class="dlg__actions">
+        <button class="a-btn" value="cancel">Renunță</button>
+        <button class="a-btn a-btn--danger" value="reset">Resetează datele</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="toasts" role="status" aria-live="polite" data-toasts></div>
+
+  <script src="js/menu-data.js" defer></script>
+  <script src="js/store.js" defer></script>
+  <script src="admin.js" defer></script>
+</body>
+</html>
